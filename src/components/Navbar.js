@@ -20,6 +20,14 @@ const HeaderNavbar = (props) => {
             <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
                 <NavItem>
+                <img src="images/pic.png"
+                width="30"
+                height="40"
+                className="d-inline-block align-top"
+                alt="logo"
+                />
+                </NavItem>
+                <NavItem>
                     <NavLink href="/">Начало</NavLink>
                 </NavItem>
                 <NavItem>
