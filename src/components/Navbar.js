@@ -31,7 +31,7 @@ const HeaderNavbar = (props) => {
                     <NavLink href="/">Начало</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="/adopt">Осинови</NavLink>
+                    <NavLink href="/adopt">Осинови ме</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink href="/contacts">Контакти</NavLink>

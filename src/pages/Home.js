@@ -35,7 +35,6 @@ class Home extends React.Component {
 
 const imageStyle = {
     padding: '80px',
-    
 }
 
 const textStyle = {
