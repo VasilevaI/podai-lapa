@@ -14,8 +14,12 @@ import Add from './pages/Add';
 import Contacts from './pages/Contacts';
 import Navbar from './components/Navbar';
 
+import { Provider } from 'react-redux';
+import store from './redux/store/index.js';
+
 function App() {
   return (
+    <Provider store={store}>
     <Router>
         <Navbar/>
       <div>
@@ -36,6 +40,7 @@ function App() {
         </Switch>
       </div>
     </Router>
+    </Provider>
   );
 }
 
