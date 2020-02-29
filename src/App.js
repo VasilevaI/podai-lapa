@@ -10,6 +10,7 @@ import {
 
 import Home from './pages/Home';
 import Adopt from './pages/Adopt';
+import Add from './pages/Add';
 import Contacts from './pages/Contacts';
 import Navbar from './components/Navbar';
 
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/adopt">
             <Adopt />
+          </Route>
+          <Route path="/add">
+            <Add />
           </Route>
           <Route path="/contacts">
             <Contacts />
