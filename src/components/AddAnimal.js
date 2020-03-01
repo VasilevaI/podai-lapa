@@ -1,34 +1,40 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../redux/actions";
 
 export class AddAnimal extends Component{
     state = {
-        name: '',
-        animal: '',
-        sex: '',
-        age: '',
-        city: '',
-        author: '',
-        phone: '',
-        info: ''
-      }
+        animal: {
+            name: '',
+            animal: '',
+            sex: '',
+            age: '',
+            city: '',
+            author: '',
+            phone: '',
+            info: ''
+        }
+      };
 
       onSubmit = (e) => {
+        console.log(e);
         e.preventDefault();
-       this.props.addAnimal(this.state.name, this.state.animal,this.state.sex, this.state.age,
-         this.state.city, this.state.author, this.state.phone, this.state.info);
-         this.setState({ 
-          name: '' ,
-          animal: '',
-          sex: '',
-          age: '',
-          city: '',
-          author: '',
-          phone: '',
-          info: ''
-        });
+       // this.props.addAnimal(this.state.name, this.state.animal,this.state.sex, this.state.age,
+       //   this.state.city, this.state.author, this.state.phone, this.state.info);
+       //   this.setState({
+       //    name: '' ,
+       //    animal: '',
+       //    sex: '',
+       //    age: '',
+       //    city: '',
+       //    author: '',
+       //    phone: '',
+       //    info: ''
+       //  });
       }
 
-    onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    // onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     render(){
         return(
@@ -135,4 +141,18 @@ const btnStyle={
   
 }
 
-export default AddAnimal
+
+const mapStateToProps = state => {
+    return {
+        animals: state.animals,
+    }
+};
+
+
+const mapStateToDispatch = dispatch => {
+    return bindActionCreators({
+        addAnimal: actions.addAnimal,
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapStateToDispatch)(AddAnimal);
