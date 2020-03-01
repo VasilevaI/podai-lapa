@@ -1,30 +1,37 @@
-import React from 'react';
-import AddAnimal from '../components/AddAnimal';
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../redux/actions";
+import AddAnimal from "../components/AddAnimal.js";
+import Animals from "../components/Animals.js"
 
-
-class Add extends React.Component {
-
-    // addAnimal=(name, animal,sex,age,city,author,phone,info)=>{
-    //    const newAnimal={
-    //        name:name,
-    //        animal:animal,
-    //        sex:sex,
-    //        age:age,
-    //        city:city,
-    //        author:author,
-    //        phone:phone,
-    //        info:info
-    //    }
-    //    this.setState({animals:[...this.state.animals, newAnimal]});
-    // }
-    render() {
-        return (
-        <div>
-         <AddAnimal addAnimal={this.addAnimal}/>
-        </div>
-        );
-    }
+function Add(props) {
+  console.log("Animals stored in Redux", JSON.stringify(props.animals));
+  return (
+    <div>
+      <AddAnimal onAnimalAdd={props.addAnimal} />
+      <Animals animals={props.animals} />
+    </div>
+  );
 }
 
+const mapStateToProps = state => {
+  return {
+    animals: state.animals
+  };
+};
 
-export default Add;
+const mapStateToDispatch = dispatch => {
+  return bindActionCreators(
+    {
+      addAnimal: actions.addAnimal
+    },
+    dispatch
+  );
+};
+
+export default connect(
+  mapStateToProps,
+  mapStateToDispatch
+)(Add);
+

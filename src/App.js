@@ -15,7 +15,6 @@ import Contacts from './pages/Contacts';
 import Navbar from './components/Navbar';
 
 import { Provider } from 'react-redux';
-// import store from './redux/store/index.js';
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./redux/reducers";
 import thunk from 'redux-thunk';

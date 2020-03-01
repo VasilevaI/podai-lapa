@@ -1,13 +1,14 @@
 import React from 'react';
 import Animals from '../components/Animals';
 
+
 class Adopt extends React.Component {
   
     state={
         animals:[
             {
                 name:'Мейси',
-                animal: 'котка',
+                kind: 'котка',
                 sex: 'женски',
                 age: '1г',
                 city: 'Пловдив',
@@ -17,7 +18,7 @@ class Adopt extends React.Component {
             },
             {
                 name:'Ариа',
-                animal: 'котка',
+                kind: 'котка',
                 sex: 'женски',
                 age: '2г',
                 city: 'Пловдив',
@@ -27,7 +28,7 @@ class Adopt extends React.Component {
             },
             {
                 name:'Меги',
-                animal: 'котка',
+                kind: 'котка',
                 sex: 'женски',
                 age: '3м',
                 city: 'Пловдив',
@@ -42,14 +43,10 @@ class Adopt extends React.Component {
         
         return  <div >
                <Animals animals={this.state.animals}/>
-
             </div>
 
      
     }
 }
-
-
-
 
 export default Adopt;

@@ -1,5 +1,5 @@
 import types from './action-types';
 
-export function addAnimal(movie){
-    return {type: types.ADD_ANIMAL, payload: movie};
+export function addAnimal(animal){
+    return {type: types.ADD_ANIMAL, payload: animal};
 }

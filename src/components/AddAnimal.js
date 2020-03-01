@@ -1,13 +1,14 @@
 import React, {Component} from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as actions from "../redux/actions";
 
-export class AddAnimal extends Component{
+ class AddAnimal extends Component{
+  static defaultProps = {
+    onAnimalAdd: () => null
+  };
+
     state = {
         animal: {
             name: '',
-            animal: '',
+            kind: '',
             sex: '',
             age: '',
             city: '',
@@ -18,32 +19,26 @@ export class AddAnimal extends Component{
       };
 
       onSubmit = (e) => {
-        console.log(e);
+        const { onAnimalAdd } = this.props;
+        const { name, kind, sex, age, city, author, phone, info } = this.state;
+        if (typeof onAnimalAdd === "function") {
+          onAnimalAdd({ name, kind, sex, age, city, author, phone, info});
+        }
         e.preventDefault();
-       // this.props.addAnimal(this.state.name, this.state.animal,this.state.sex, this.state.age,
-       //   this.state.city, this.state.author, this.state.phone, this.state.info);
-       //   this.setState({
-       //    name: '' ,
-       //    animal: '',
-       //    sex: '',
-       //    age: '',
-       //    city: '',
-       //    author: '',
-       //    phone: '',
-       //    info: ''
-       //  });
+      
       }
 
-    // onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+     onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
     render(){
+      const { name, kind, sex, age, city, author, phone, info } = this.state;
         return(
             <form onSubmit={this.onSubmit} style={formStyle}>
                  <input 
                 type="text"
                 name="name"
                 placeholder=" име на животното ..."
-                value={this.state.name}
+                value={name}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -51,9 +46,9 @@ export class AddAnimal extends Component{
 
                 <input 
                 type="text"
-                name="animal"
+                name="kind"
                 placeholder=" котка или куче ..."
-                value={this.state.animal}
+                value={kind}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -62,7 +57,7 @@ export class AddAnimal extends Component{
                 type="text"
                 name="sex"
                 placeholder="Въведете пол ..."
-                value={this.state.sex}
+                value={sex}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -71,7 +66,7 @@ export class AddAnimal extends Component{
                 type="text"
                 name="age"
                 placeholder="Години на животното ..."
-                value={this.state.age}
+                value={age}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -80,7 +75,7 @@ export class AddAnimal extends Component{
                 type="text"
                 name="city"
                 placeholder="населено място ..."
-                value={this.state.city}
+                value={city}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -89,7 +84,7 @@ export class AddAnimal extends Component{
                 type="text"
                 name="author"
                 placeholder="Име за контакт ..."
-                value={this.state.author}
+                value={author}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -98,7 +93,7 @@ export class AddAnimal extends Component{
                 type="text"
                 name="phone"
                 placeholder="Телефон за връзка ..."
-                value={this.state.phone}
+                value={phone}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -107,7 +102,7 @@ export class AddAnimal extends Component{
                 type="textarea"
                 name="info"
                 placeholder="информация  ..."
-                value={this.state.info}
+                value={info}
                 onChange={this.onChange}
                 style={inputStyle}
                 />
@@ -142,17 +137,5 @@ const btnStyle={
 }
 
 
-const mapStateToProps = state => {
-    return {
-        animals: state.animals,
-    }
-};
 
-
-const mapStateToDispatch = dispatch => {
-    return bindActionCreators({
-        addAnimal: actions.addAnimal,
-    }, dispatch)
-};
-
-export default connect(mapStateToProps, mapStateToDispatch)(AddAnimal);
+export default AddAnimal;

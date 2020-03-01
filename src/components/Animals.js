@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class Animals extends Component{
-    render(){
-        return this.props.animals.map((animals) =>(
-            <div className="container" style={containerStyle}>
+function Animals(props){
+   
+        return props.animals.map((animals, index) =>(
+            <div className="container" key={index} style={containerStyle}>
             <div className="col-xs-12 col-md-10 ">
             <div className="post" style={postStyle}>
             <div className="col-xs-5 col-sm-4 thumbnail-col" style={infoStyle}>
@@ -13,7 +13,7 @@ class Animals extends Component{
            <div className="col-xs-7 col-sm-3 info-col" style={infoStyle}>
                <h3 className="postTitle" title="Мейси" style={titleStyle} > {animals.name}</h3>
                <div className="postData">
-                       <p className="pleft">Вид: {animals.animal} </p>
+                       <p className="pleft">Вид: {animals.kind} </p>
                        <p className="pleft">Пол: {animals.sex} </p>
                        <p className="pleft">Възраст: {animals.age} </p>
                        <p className="pleft">Населено място: {animals.city} </p>
@@ -33,7 +33,7 @@ class Animals extends Component{
         </div>
         </div>
         ));
-    }
+    
 }
 
 const containerStyle={
