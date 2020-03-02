@@ -44,11 +44,10 @@ class AddAnimal extends Component {
                 style={inputStyle}
               />          
           <br />        
-            <label className="col-sm-5"> Вид: </label>
+            <label className="col-sm-5"> Вид (коте или куче): </label>
              <input 
                 type="text"
                 name="kind"
-                placeholder="коте или куче ..."
                 value={kind}
                 onChange={this.onChange}
                 style={inputStyle}
@@ -82,7 +81,7 @@ class AddAnimal extends Component {
             style={inputStyle}
           />
           <br />
-          <label className="col-sm-5">Име за контакт: </label>
+          <label className="col-sm-5">Лице за контакт: </label>
           <input
             type="text"
             name="author"
@@ -101,8 +100,7 @@ class AddAnimal extends Component {
           />
           <br />
           <label className="col-sm-5">Допълнителна информация: </label>
-          <input
-            type="textarea"
+          <textarea
             name="info"
             value={info}
             onChange={this.onChange}
@@ -123,8 +121,8 @@ class AddAnimal extends Component {
 
 const formStyle = {
   margin: '10px',
-  padding: '10px',
-  border: '1px solid black',
+  padding: '8px',
+  border: '1px solid red',
 
 }
 

@@ -26,7 +26,7 @@ function Animals(props){
                <p className="author"> <h4>{animals.author}</h4></p>
                <div className="authorInfo">
                    <p className="contactInfo">Телефон: {animals.phone}</p>
-                   <p> {animals.info}</p>
+                   <p> Допълнителна информация:{animals.info}</p>
                </div>
            </div>
         </div>    
