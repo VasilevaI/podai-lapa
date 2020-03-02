@@ -8,13 +8,20 @@ import Adopt from "../pages/Adopt.js"
 
 function Add(props) {
   console.log("Animals stored in Redux", JSON.stringify(props.animals));
+  
   return (
-    <div> 
+    <div>
+      <input
+              type="submit"
+              value="ДОБАВИ"
+              className="btn"
+              onClick={this.handleShow}
+            />
       <AddAnimal onAnimalAdd={props.addAnimal} />
       <Animals animals={props.animals} />
-    { /* <Adopt/> */}
-     
-      
+      <Adopt/> 
+
+
     </div>
   );
 }

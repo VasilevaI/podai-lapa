@@ -7,7 +7,7 @@ function Animals(props){
             <div className="col-xs-12 col-md-10 ">
             <div className="post" style={postStyle}>
             <div className="col-xs-5 col-sm-4 thumbnail-col" style={infoStyle}>
-                <img src="images/cat1.jpg" 
+                <img src="images/animal.jpg" 
                 width="100%" height="100%"/>
             </div>
            <div className="col-xs-7 col-sm-3 info-col" style={infoStyle}>
@@ -37,11 +37,9 @@ function Animals(props){
 }
 
 const containerStyle={
-    width:'100%',
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    paddingLeft: '15px',
-    paddingRight: '15px'
+    paddingLeft: '25px',
+    paddingRight: '15px',
+    fontFamily:'Comic Sans MS'
 }
 const postStyle = {
     margin: '15px',

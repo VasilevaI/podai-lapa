@@ -41,6 +41,7 @@ class Adopt extends React.Component {
     render() {
         console.log( JSON.stringify(this.state.animals));
         return  <div >
+            
                <Animals animals={this.state.animals}/>
             </div>
 
