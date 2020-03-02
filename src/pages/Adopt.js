@@ -1,7 +1,6 @@
 import React from 'react';
 import Animals from '../components/Animals';
 
-
 class Adopt extends React.Component {
   
     state={
@@ -40,7 +39,7 @@ class Adopt extends React.Component {
     }
 
     render() {
-        
+        console.log( JSON.stringify(this.state.animals));
         return  <div >
                <Animals animals={this.state.animals}/>
             </div>

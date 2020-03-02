@@ -3,14 +3,18 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../redux/actions";
 import AddAnimal from "../components/AddAnimal.js";
-import Animals from "../components/Animals.js"
+import Animals from "../components/Animals.js";
+import Adopt from "../pages/Adopt.js"
 
 function Add(props) {
   console.log("Animals stored in Redux", JSON.stringify(props.animals));
   return (
-    <div>
+    <div> 
       <AddAnimal onAnimalAdd={props.addAnimal} />
       <Animals animals={props.animals} />
+    { /* <Adopt/> */}
+     
+      
     </div>
   );
 }
