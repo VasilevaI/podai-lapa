@@ -33,9 +33,24 @@ class AddAnimal extends Component {
 
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
+  onShowButtonClicked = () => {
+    this.setState({
+      displayForm: true
+    });
+  };
+
+  onHideButtonClicked = () => {
+    this.setState({
+      displayForm: false
+    });
+  };
+
   render() {
-    const { name, kind, sex, age, city, author, phone, info } = this.state;
-    return (
+    const { name, kind, sex, age, city, author, phone, info,displayForm } = this.state;
+    return !displayForm ? (
+      <button onClick={this.onShowButtonClicked}>Добави за осиновяване</button>
+    ) : (
+      <React.Fragment>
       <div className="col-xs-12 col-sm-5">
         <form onSubmit={this.onSubmit} style={formStyle}>
           <fieldset>
@@ -120,9 +135,10 @@ class AddAnimal extends Component {
             />
           </fieldset>
         </form>
-
+        <button onClick={this.onHideButtonClicked}>Скрий</button>
       </div>
-    )
+      </React.Fragment>
+    );
   }
 }
 

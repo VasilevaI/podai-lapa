@@ -21,8 +21,8 @@ const HeaderNavbar = (props) => {
             <Nav className="mr-auto" navbar>
                 <NavItem>
                 <img src="images/logo.png"
-                width="30"
-                height="40"
+                width="100"
+                height="90"
                 className="d-inline-block align-top"
                 alt="logo"
                 />
