@@ -20,7 +20,7 @@ const HeaderNavbar = (props) => {
             <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
                 <NavItem>
-                <img src="images/pic.png"
+                <img src="images/logo.png"
                 width="30"
                 height="40"
                 className="d-inline-block align-top"

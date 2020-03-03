@@ -11,12 +11,7 @@ function Add(props) {
   
   return (
     <div>
-      <input
-              type="submit"
-              value="ДОБАВИ"
-              className="btn"
-              onClick={this.handleShow}
-            />
+      
       <AddAnimal onAnimalAdd={props.addAnimal} />
       <Animals animals={props.animals} />
       <Adopt/> 

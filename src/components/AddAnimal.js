@@ -15,7 +15,8 @@ class AddAnimal extends Component {
       author: '',
       phone: '',
       info: ''
-    } 
+    },
+    displayForm:false
   };
 
  
