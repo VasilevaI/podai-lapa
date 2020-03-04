@@ -14,30 +14,26 @@ const HeaderNavbar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <Navbar color="dark" dark expand="md">
-        <div className="container">
+    <Navbar expand="md" style={navStyle}>
+        <div className="container col-sm-10" >
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
                 <NavItem>
                 <img src="images/logo.png"
-                width="100"
-                height="90"
-                className="d-inline-block align-top"
+                width="65"
+                height="65"
                 alt="logo"
                 />
                 </NavItem>
-                <NavItem>
-                    <NavLink href="/">Начало</NavLink>
+                <NavItem >
+                    <NavLink href="/" style={linkStyle}>Начало</NavLink>
+                </NavItem>
+                <NavItem >
+                    <NavLink href="/add" style={linkStyle}>Осинови ме</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink href="/adopt">Осинови ме</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="/add">Добави</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="/contacts">Контакти</NavLink>
+                    <NavLink href="/contacts" style={linkStyle}>Контакти</NavLink>
                 </NavItem>
             </Nav>
             </Collapse>
@@ -45,5 +41,16 @@ const HeaderNavbar = (props) => {
     </Navbar>
   );
 }
+
+const navStyle={
+    background: '#b30000',        
+}
+
+const linkStyle={
+    color: 'white',
+    fontSize: '20px',
+    padding: '15px',
+}
+
 
 export default HeaderNavbar;

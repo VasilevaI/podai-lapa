@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-function Animals(props){
+function AnimalsContainer(props){
    
         return props.animals.map((animals, index) =>(
             <div className="container" key={index} style={containerStyle}>
-            <div className="col-xs-12 col-md-10 ">
+            <div className="col-xs-12 col-md-12 ">
             <div className="post" style={postStyle}>
             <div className="col-xs-5 col-sm-4 thumbnail-col" style={infoStyle}>
                 <img src="images/animal.jpg" 
@@ -69,4 +69,4 @@ const btnMore={
     display: 'inline-block',
     float: 'right'
 }
-export default Animals
+export default AnimalsContainer

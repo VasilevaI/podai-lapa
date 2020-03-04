@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 
 import Home from './pages/Home';
-import Adopt from './pages/Adopt';
 import Add from './pages/Add';
 import Contacts from './pages/Contacts';
 import Navbar from './components/Navbar';
@@ -32,9 +31,6 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Home/>
-          </Route>
-          <Route path="/adopt">
-            <Adopt />
           </Route>
           <Route path="/add">
             <Add />

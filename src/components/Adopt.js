@@ -1,5 +1,5 @@
 import React from 'react';
-import Animals from '../components/Animals';
+import AnimalsContainer from '../components/AnimalsContainer';
 
 class Adopt extends React.Component {
   
@@ -42,7 +42,7 @@ class Adopt extends React.Component {
         console.log( JSON.stringify(this.state.animals));
         return  <div >
             
-               <Animals animals={this.state.animals}/>
+               <AnimalsContainer animals={this.state.animals}/>
             </div>
 
      
