@@ -39,7 +39,7 @@ function AnimalsContainer(props){
 const containerStyle={
     paddingLeft: '25px',
     paddingRight: '15px',
-    fontFamily:'Comic Sans MS'
+    fontFamily:'Comic Sans MS',
 }
 const postStyle = {
     margin: '15px',
