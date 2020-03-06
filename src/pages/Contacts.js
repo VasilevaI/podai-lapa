@@ -30,7 +30,7 @@ class Contacts extends React.Component {
                 <label>Имейл адрес</label>
                 <input 
                 type="email" 
-                name="emial" 
+                name="email" 
                 className="form-control" 
                 onChange={this.onChange} 
                 value={this.state.email} />
