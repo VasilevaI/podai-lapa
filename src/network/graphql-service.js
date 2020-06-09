@@ -68,7 +68,7 @@ export default {
         })
         return response;
     },
-    async currentUser(responseFields = "_id firstName lastName email userType games {name}"){
+    async currentUser(responseFields = "_id firstName lastName email userType animals {name}"){
         const response = await graphQLClient.query({
             query: gql `
                 query {
