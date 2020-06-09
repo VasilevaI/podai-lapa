@@ -1,151 +1,131 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import {useDispatch} from 'react-redux';
+import {addAnimal} from '../redux/actions';
 
-class AddAnimalForm extends Component {
-  static defaultProps = {
-    onAnimalAdd: () => null
-  };
+const AddAnimalForm = () => {
+ 
+  const dispatch = useDispatch();
 
-  state = {
-    animal: {
-      name: '',
-      kind: '',
-      sex: '',
-      age: '',
-      city: '',
-      author: '',
-      phone: '',
-      info: ''
-    },
-    displayForm: false
-  };
+  const [name, setName] = useState('');
+  const [kind, setKind] = useState('');
+  const [sex, setSex] = useState('');
+  const [age, setAge] = useState('');
+  const [city, setCity] = useState('');
+  const [author, setAuthor] = useState('');
+  const [phone, setPhone] = useState('');
+  const [info, setInfo] = useState('');
+  const [displayForm, setDisplayForm] = useState(false);
 
-  onSubmit = (e) => {
-    const { onAnimalAdd } = this.props;
-    const { name, kind, sex, age, city, author, phone, info } = this.state;
-    if (typeof onAnimalAdd === "function") {
-      onAnimalAdd({ name, kind, sex, age, city, author, phone, info });
-    }
-
-    e.preventDefault();
+ const dispatchAddAnimal = () => {
+   dispatch(addAnimal({
+    name, kind, sex, age, city, author, phone, info
+   },'_id  name kind sex age city author phone info')); 
   }
 
-  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
-
-  onShowButtonClicked = () => {
-    this.setState({
-      displayForm: true,
-    });
+  const onShowButtonClicked = () => {
+    setDisplayForm(true)
   };
 
-  onHideButtonClicked = () => {
-    this.setState({
-      displayForm: false
-    });
+  const onHideButtonClicked = () => {
+   setDisplayForm(false)
   };
 
-  render() {
-    const { name, kind, sex, age, city, author, phone, info, displayForm } = this.state;
+   
     return !displayForm ? (
-      <button className="col-xs-12 col-md-3" onClick={this.onShowButtonClicked} style={btnShowStyle}>Добави за осиновяване</button>
+      <button className="col-xs-12 col-md-3" onClick={onShowButtonClicked} style={btnShowStyle}>Добави за осиновяване</button>
     ) : (
         <React.Fragment>
           <div className="col-xs-12 col-sm-5">
-            <button className="col-xs-12 col-md-3" onClick={this.onHideButtonClicked} style={btnHideStyle}>Скрий </button>
-            <form onSubmit={this.onSubmit} style={formStyle}>
-              <fieldset>
-                <legend>Добави животно за осиновяване: </legend> <br />
-                <label className="col-sm-5" >Име на животното*: </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={name}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                  required
+            <button className="col-xs-12 col-md-3" onClick={onHideButtonClicked} style={btnHideStyle}>Скрий </button>
+            <form style={formStyle}>
+        <div className="form-group">
+            <label htmlFor="animal-name">Име</label>
+            <input type="text"
+                className="form-control"
+                onChange={e => setName(e.target.value)}
+                id="animal-name" 
+                placeholder="Въведи име "
+              />
+        </div>
+            <div className="form-group">
+            <label htmlFor="kind">Вид</label>
+            <input 
+                type="text"
+                onChange={e => setKind(e.target.value)}
+                className="form-control" 
+                id="kind" 
+                placeholder="Въведи вид"
+               
                 />
-                <br />
-                <label className="col-sm-5"> Вид (коте или куче)*: </label>
-                <input
-                  type="text"
-                  name="kind"
-                  value={kind}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                  required
+        </div>
+        <div className="form-group">
+            <label htmlFor="sex">Пол</label>
+            <input 
+                type="text" 
+                className="form-control" 
+                onChange={e => setSex(e.target.value)}
+                id="sex"
+                placeholder="Въведи пол"
+               
                 />
-
-                <br />
-                <label className="col-sm-5">Пол*: </label>
-                <input
-                  type="text"
-                  name="sex"
-                  value={sex}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                  required
-                />
-                <br />
-                <label className="col-sm-5">Възраст*: </label>
-                <input
-                  type="text"
-                  name="age"
-                  value={age}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                  required
-                />
-                <br />
-                <label className="col-sm-5">Населено място*: </label>
-                <input
-                  type="text"
-                  name="city"
-                  value={city}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                  required
-                />
-                <br />
-                <label className="col-sm-5">Лице за контакт*: </label>
-                <input
-                  type="text"
-                  name="author"
-                  value={author}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                  required
-                />
-                <br />
-                <label className="col-sm-5">Телефон*: </label>
-                <input
-                  type="text"
-                  name="phone"
-                  value={phone}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                  required
-                />
-                <br />
-                <label className="col-sm-5">Допълнителна информация: </label>
-                <textarea
-                  name="info"
-                  value={info}
-                  onChange={this.onChange}
-                  style={inputStyle}
-                />
-                <br />
-                <input
-                  type="submit"
-                  value="ДОБАВИ"
-                  className="btn"
-                  style={btnSubmitStyle}
-                />
-              </fieldset>
-            </form>
+        </div>
+        <div className="form-group">
+            <label htmlFor="age">Възраст</label>
+            <input 
+                type="text" 
+                className="form-control" 
+                onChange={e => setAge(Number(e.target.value))}
+                id="age" 
+                placeholder="Въведи възраст"
+               />
+        </div>
+        <div className="form-group">
+            <label htmlFor="city">Населено място</label>
+            <input 
+                type="text" 
+                className="form-control" 
+                onChange={e => setCity(e.target.value)}
+                id="city" 
+                placeholder="Въведи населено място"
+               />
+        </div>
+        <div className="form-group">
+            <label htmlFor="author">Автор</label>
+            <input 
+                type="text" 
+                className="form-control" 
+                onChange={e => setAuthor(e.target.value)}
+                id="author" 
+                placeholder="Въведи автор"
+               />
+        </div>
+        <div className="form-group">
+            <label htmlFor="phone">Телефон за контакт</label>
+            <input 
+                type="text" 
+                className="form-control" 
+                onChange={e => setPhone(e.target.value)}
+                id="phone" 
+                placeholder="Въведи телефон за контакт"
+               />
+        </div>
+        <div className="form-group">
+            <label htmlFor="info">Допълнителна информация</label>
+            <input 
+                type="text" 
+                className="form-control" 
+                onChange={e => setInfo(e.target.value)}
+                id="info" 
+                placeholder="Въведи допълнителна информация"
+               />
+        </div>
+        <button type="button" className="btn btn-primary" onClick={dispatchAddAnimal} >Добави</button>
+    </form>
 
           </div>
         </React.Fragment>
       );
-  }
+  
 }
 
 
@@ -155,19 +135,7 @@ const formStyle = {
   border: '1px solid red',
   fontFamily: 'Comic Sans MS',
   position: 'relative',
-  left: '400px'
-}
-
-const inputStyle = {
-  marginLeft: '15px',
-  marginBottom: '5px',
-}
-
-const btnSubmitStyle = {
-  background: '#2196F3',
-  padding: '2px',
-  borderRadius: '3px',
-  float: 'right'
+  left: '300px'
 }
 
 const btnShowStyle = {

@@ -9,9 +9,9 @@ import {
 } from "react-router-dom";
 
 import Home from './pages/Home';
-import Add from './pages/Add';
+import Animals from './pages/Animals';
 import Contacts from './pages/Contacts';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from "redux";
@@ -20,29 +20,59 @@ import thunk from 'redux-thunk';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
+const Layout = props => (
+  <>
+      <Header/>
+      <div className="container mt-5">
+          {props.children}
+      </div>
+  </>
+)
+
+const routes = [
+  {
+      path: '/',
+      exact: true,
+      main: () => <Layout>
+          <Home/>
+      </Layout>
+  },
+  {
+      path: '/adopt',
+      exact: true,
+      main: () => <Layout>
+          <Animals/>
+      </Layout>
+  },
+  {
+    path: '/contacts',
+    exact: true,
+    main: () => <Layout>
+        <Contacts/>
+    </Layout>
+},
+
+]
+
+const getRoutes = () => {
+  return routes.map((route, index) => {
+      return <Route
+          exact={route.exact} 
+          key={index}
+          path={route.path}>
+          {route.main}
+      </Route>
+  })
+}
 
 function App() {
-  return (
-    <Provider store={store}>
-    <Router>
-        <Navbar/>
-      <div>
-       
-        <Switch>
-          <Route path="/" exact>
-            <Home/>
-          </Route>
-          <Route path="/add">
-            <Add />
-          </Route>
-          <Route path="/contacts">
-            <Contacts />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-    </Provider>
-  );
+  return <Provider store={store}>
+  <Router>
+      <Switch>
+          {getRoutes()}
+      </Switch>
+  </Router>
+</Provider>
 }
 
 export default App;

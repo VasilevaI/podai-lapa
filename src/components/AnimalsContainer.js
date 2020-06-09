@@ -1,6 +1,16 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {deleteAnimal} from '../redux/actions';
 
-function AnimalsContainer(props){
+const AnimalsContainer =props => {
+
+    const dispatch = useDispatch();
+
+    const dispatchDeleteAnimal = () => {
+        dispatch(deleteAnimal({
+            _id: props.animals._id
+        }, '_id  name kind sex age city author phone info'));
+    }
    
         return props.animals.map((animals, index) =>(
             <div className="container" key={index} style={containerStyle}>
@@ -28,6 +38,7 @@ function AnimalsContainer(props){
                    <p className="contactInfo">Телефон: {animals.phone}</p>
                    <p> Допълнителна информация:{animals.info}</p>
                </div>
+               <button type="button" className="btn btn-danger mb-1" onClick={dispatchDeleteAnimal}>Изтрий</button>
            </div>
         </div>    
         </div>
@@ -46,27 +57,25 @@ const postStyle = {
     display: 'flex',
     flexWrap: 'wrap',
     boxSizzing: 'border-box',
-    border: '2px solid black',
-    
+    border: '1px solid black',    
 }
-
 const titleStyle={
-    borderBottom: '2px solid white'
+    borderBottom: '2px solid white' 
 }
 const infoStyle={
-    background: '#b30000',
+ background: '#b30000',
     padding: '8px',
-    color: 'white',
+    color: 'white', 
 }
 const authorStyle={
     padding: '8px',
-    marginLeft: '20px'
+    marginLeft: '20px' 
 }
 const btnMore={
-    background: '#2196F3',
+     background: '#2196F3',
     padding: '1px',
     borderRadius: '3px',
     display: 'inline-block',
-    float: 'right'
+    float: 'right' 
 }
 export default AnimalsContainer
