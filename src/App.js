@@ -11,6 +11,7 @@ import {
 import Home from './pages/Home';
 import Animals from './pages/Animals';
 import Contacts from './pages/Contacts';
+import Profile from './pages/Profile';
 import Header from './components/Header';
 
 import { Provider } from 'react-redux';
@@ -51,6 +52,15 @@ const routes = [
         <Contacts/>
     </Layout>
 },
+{
+    path: '/profile',
+    exact: false,
+    main: () => {
+        return <Layout>
+        <Profile/>
+    </Layout>
+    }
+}
 
 ]
 
