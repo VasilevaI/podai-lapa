@@ -14,6 +14,7 @@ import Contacts from './pages/Contacts';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 
+
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./redux/reducers";
@@ -60,7 +61,8 @@ const routes = [
         <Profile/>
     </Layout>
     }
-}
+},
+
 
 ]
 

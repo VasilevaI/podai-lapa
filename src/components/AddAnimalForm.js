@@ -35,21 +35,22 @@ const AddAnimalForm = () => {
       <button className="col-xs-12 col-md-3" onClick={onShowButtonClicked} style={btnShowStyle}>Добави за осиновяване</button>
     ) : (
         <React.Fragment>
-          <div className="col-xs-12 col-sm-5">
+          <div className="col-xs-12 col-sm-9">
             <button className="col-xs-12 col-md-3" onClick={onHideButtonClicked} style={btnHideStyle}>Скрий </button>
             <form style={formStyle}>
-        <div className="form-group">
-            <label htmlFor="animal-name">Име</label>
-            <input type="text"
+  <div className="form-row">
+    <div className="form-group col-md-6">
+       <label htmlFor="animal-name">Име</label>
+      <input type="text"
                 className="form-control"
                 onChange={e => setName(e.target.value)}
                 id="animal-name" 
                 placeholder="Въведи име "
               />
-        </div>
-            <div className="form-group">
-            <label htmlFor="kind">Вид</label>
-            <input 
+    </div>
+    <div className="form-group col-md-6">
+      <label htmlFor="kind">Вид</label>
+       <input 
                 type="text"
                 onChange={e => setKind(e.target.value)}
                 className="form-control" 
@@ -57,10 +58,14 @@ const AddAnimalForm = () => {
                 placeholder="Въведи вид"
                
                 />
-        </div>
-        <div className="form-group">
-            <label htmlFor="sex">Пол</label>
-            <input 
+    </div>
+  </div>
+
+ 
+  <div className="form-row">
+    <div className="form-group col-md-4">
+      <label htmlFor="sex">Пол</label>
+       <input 
                 type="text" 
                 className="form-control" 
                 onChange={e => setSex(e.target.value)}
@@ -68,29 +73,32 @@ const AddAnimalForm = () => {
                 placeholder="Въведи пол"
                
                 />
-        </div>
-        <div className="form-group">
-            <label htmlFor="age">Възраст</label>
-            <input 
+    </div>
+    <div className="form-group col-md-4">
+      <label htmlFor="age">Възраст</label>
+       <input 
                 type="text" 
                 className="form-control" 
                 onChange={e => setAge(Number(e.target.value))}
                 id="age" 
                 placeholder="Въведи възраст"
                />
-        </div>
-        <div className="form-group">
-            <label htmlFor="city">Населено място</label>
+    </div>
+    <div className="form-group col-md-4">
+     <label htmlFor="city">Населено място</label>
             <input 
                 type="text" 
                 className="form-control" 
                 onChange={e => setCity(e.target.value)}
                 id="city" 
-                placeholder="Въведи населено място"
+                placeholder="Въведи град"
                />
-        </div>
-        <div className="form-group">
-            <label htmlFor="author">Автор</label>
+    </div>
+  </div>
+ 
+   <div className="form-row">
+    <div className="form-group col-md-6">
+      <label htmlFor="author">Автор</label>
             <input 
                 type="text" 
                 className="form-control" 
@@ -98,29 +106,30 @@ const AddAnimalForm = () => {
                 id="author" 
                 placeholder="Въведи автор"
                />
-        </div>
-        <div className="form-group">
-            <label htmlFor="phone">Телефон за контакт</label>
+    </div>
+    <div className="form-group col-md-6">
+      <label htmlFor="phone">Телефон за контакт</label>
             <input 
                 type="text" 
                 className="form-control" 
                 onChange={e => setPhone(e.target.value)}
                 id="phone" 
-                placeholder="Въведи телефон за контакт"
+                placeholder="Въведи телефон "
                />
-        </div>
-        <div className="form-group">
-            <label htmlFor="info">Допълнителна информация</label>
+    </div>
+    <div className="form-group col-md-6">
+     <label htmlFor="info">Допълнителна информация</label>
             <input 
                 type="text" 
                 className="form-control" 
                 onChange={e => setInfo(e.target.value)}
                 id="info" 
-                placeholder="Въведи допълнителна информация"
+                placeholder=""
                />
-        </div>
-        <button type="button" className="btn btn-primary" onClick={dispatchAddAnimal} >Добави</button>
-    </form>
+    </div>
+  </div>
+   <button type="button" className="btn btn-primary" onClick={dispatchAddAnimal} >Добави</button>
+</form>
 
           </div>
         </React.Fragment>
@@ -135,7 +144,7 @@ const formStyle = {
   border: '1px solid red',
   fontFamily: 'Comic Sans MS',
   position: 'relative',
-  left: '300px'
+  left: '150px'
 }
 
 const btnShowStyle = {

@@ -7,4 +7,5 @@ export default {
     SET_USER_LOADED: 'SET_USER_LOADED',
     SET_USER: 'SET_USER',
     ADD_GRAPHQL_ERROR: 'ADD_GRAPHQL_ERROR',
+
 };
