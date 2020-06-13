@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useDispatch} from 'react-redux';
 import {addAnimal} from '../redux/actions';
-
+let myFormRef = React.createRef()
 const AddAnimalForm = () => {
  
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const AddAnimalForm = () => {
   const [displayForm, setDisplayForm] = useState(false);
 
  const dispatchAddAnimal = () => {
+  myFormRef.reset();  
    dispatch(addAnimal({
     name, kind, sex, age, city, author, phone, info
    },'_id  name kind sex age city author phone info')); 
@@ -29,15 +30,14 @@ const AddAnimalForm = () => {
   const onHideButtonClicked = () => {
    setDisplayForm(false)
   };
-
-   
+ 
     return !displayForm ? (
       <button className="col-xs-12 col-md-3" onClick={onShowButtonClicked} style={btnShowStyle}>Добави за осиновяване</button>
     ) : (
         <React.Fragment>
           <div className="col-xs-12 col-sm-9">
             <button className="col-xs-12 col-md-3" onClick={onHideButtonClicked} style={btnHideStyle}>Скрий </button>
-            <form style={formStyle}>
+            <form ref={(el) => myFormRef = el} style={formStyle} >
   <div className="form-row">
     <div className="form-group col-md-6">
        <label htmlFor="animal-name">Име</label>
