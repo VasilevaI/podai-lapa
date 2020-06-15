@@ -103,6 +103,6 @@ export const deleteAnimal = (variables, responseFields = "_id") => async dispatc
     }
 };
 
-export function deleteAnimalFromStore (game) {
-    return {type: types.DELETE_ANIMAL, payload: game}
+export function deleteAnimalFromStore (animal) {
+    return {type: types.DELETE_ANIMAL, payload: animal}
 }

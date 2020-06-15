@@ -5,7 +5,7 @@ let myFormRef = React.createRef()
 const AddAnimalForm = () => {
  
   const dispatch = useDispatch();
-
+  const [imageUrl, setImageUrl] = useState('');
   const [name, setName] = useState('');
   const [kind, setKind] = useState('');
   const [sex, setSex] = useState('');
@@ -19,8 +19,8 @@ const AddAnimalForm = () => {
  const dispatchAddAnimal = () => {
   myFormRef.reset();  
    dispatch(addAnimal({
-    name, kind, sex, age, city, author, phone, info
-   },'_id  name kind sex age city author phone info')); 
+    name, kind,imageUrl, sex, age, city, author, phone, info
+   },'_id name kind imageUrl sex age city author phone info')); 
   }
 
   const onShowButtonClicked = () => {
@@ -60,7 +60,18 @@ const AddAnimalForm = () => {
                 />
     </div>
   </div>
-
+  <div className="form-row">
+  <div className="form-group col-md-12">
+       <label htmlFor="animal-img">Снимка</label>
+      <input type="text"
+                className="form-control"
+                onChange={e => setImageUrl(e.target.value)}
+                id="animal-img" 
+                placeholder="Въведи URL за картинка "
+              />
+              <img src={imageUrl} className="d-block img-fluid" alt=""/>
+    </div>
+    </div>
  
   <div className="form-row">
     <div className="form-group col-md-4">
@@ -153,7 +164,7 @@ const btnShowStyle = {
   borderRadius: '5px',
   margin: '10px',
   position: 'relative',
-  left: '850px'
+  left: '790px'
 }
 
 const btnHideStyle = {
@@ -162,7 +173,7 @@ const btnHideStyle = {
   borderRadius: '5px',
   margin: '10px',
   position: 'relative',
-  left: '950px'
+  left: '850px'
 }
 
 export default AddAnimalForm;

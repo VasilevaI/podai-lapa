@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import {useDispatch} from 'react-redux';
 import {deleteAnimal} from '../redux/actions';
+import {useSelector } from 'react-redux';
+
 
 const AnimalsContainer =props => {
 
@@ -9,17 +11,26 @@ const AnimalsContainer =props => {
     const dispatchDeleteAnimal = () => {
         dispatch(deleteAnimal({
             _id: props.animals._id
-        }, '_id  name kind sex age city author phone info'));
+        }, '_id  imageUrl name kind sex age city author phone info'));
     }
    
+    // const dispatchEditAnimal = () => {
+    //     dispatch(editAnimal({
+    //         _id: props.animals._id
+    //     }, '_id imageUrl name kind sex age city author phone info'));
+    // }
+
+    const userLoaded = useSelector(state => state.userLoaded);
+    const currentUser = useSelector(state => state.currentUser);
+
         return <div className="container"  style={containerStyle}>
             <div className="col-xs-12 col-md-12 ">
             <div className="post" style={postStyle}>
-            <div className="col-xs-5 col-sm-4 thumbnail-col" style={infoStyle}>
-                <img src="images/animal.jpg" 
+            <div className="col-xs-5 col-sm-3 thumbnail-col" style={infoStyle}>
+                <img src={props.animals.imageUrl}
                 width="100%" height="100%"/>
             </div>
-           <div className="col-xs-7 col-sm-3 info-col" style={infoStyle}>
+           <div className="col-xs-7 col-sm-4 info-col" style={infoStyle}>
                <h3 className="postTitle" title="Мейси" style={titleStyle} > {props.animals.name}</h3>
                <div className="postData">
                        <p className="pleft">Вид: {props.animals.kind} </p>
@@ -37,18 +48,33 @@ const AnimalsContainer =props => {
                    <p className="contactInfo">Телефон: {props.animals.phone}</p>
                    <p> Допълнителна информация:{props.animals.info}</p>
                </div>
-               <button type="button" className="btn btn-danger mb-1" onClick={dispatchDeleteAnimal}>Изтрий</button>
+               <br/>
+               {userLoaded && currentUser._id ? (
+                   <div>
+               <button type="button" style={btnEditDelete} className="btn btn-outline-primary"/*  onClick={dispatchEditAnimal} */>Редактирай</button> <br/> <br/>
+               <button type="button" style={btnEditDelete} className="btn btn-danger mb-1" onClick={dispatchDeleteAnimal}>Изтрий</button>
            </div>
-        </div>    
+            ) : (
+            <div className="row">
+          
         </div>
+        )}
+              
+              </div>
+          
+         
         </div>
        
+               
+           </div>
+        </div>    
+      
     
 }
 
 const containerStyle={
-    paddingLeft: '25px',
-    paddingRight: '15px',
+    paddingLeft: '20px',
+    paddingRight: '5px',
     fontFamily:'Comic Sans MS',
 }
 const postStyle = {
@@ -76,5 +102,9 @@ const btnMore={
     borderRadius: '3px',
     display: 'inline-block',
     float: 'right' 
+}
+
+const btnEditDelete={
+float: 'right',
 }
 export default AnimalsContainer
