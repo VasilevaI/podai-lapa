@@ -26,9 +26,8 @@ const AnimalsContainer =props => {
         return <div className="container"  style={containerStyle}>
             <div className="col-xs-12 col-md-12 ">
             <div className="post" style={postStyle}>
-            <div className="col-xs-5 col-sm-3 thumbnail-col" style={infoStyle}>
-                <img src={props.animals.imageUrl}
-                width="100%" height="100%"/>
+            <div className="col-xs-5 col-sm-3 thumbnail-col">
+            <img src={props.animals.imageUrl} className="card-img-top" />
             </div>
            <div className="col-xs-7 col-sm-4 info-col" style={infoStyle}>
                <h3 className="postTitle" title="Мейси" style={titleStyle} > {props.animals.name}</h3>

@@ -15,8 +15,8 @@ export default {
     },
     async addAnimal(variables, responseFields){
         const response = await graphQLClient.mutate({
-            mutation: gql `mutation($name: String!, $kind: String!, $sex: String!, $age: Float!, $city: String!, $author: String!, $phone: String!, $info: String!){
-                addAnimal(name: $name, kind: $kind, sex: $sex, age: $age, city: $city, author: $author,  phone:$phone,  info: $info){
+            mutation: gql `mutation($name: String!, $kind: String!, imagwUrl: Strimg!, $sex: String!, $age: Float!, $city: String!, $author: String!, $phone: String!, $info: String!){
+                addAnimal(name: $name, kind: $kind, imageUrl: $imageUrl, sex: $sex, age: $age, city: $city, author: $author,  phone:$phone,  info: $info){
                     ${responseFields}
                 }
             }`,
