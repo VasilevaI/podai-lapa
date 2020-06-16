@@ -67,7 +67,7 @@ const AddAnimalForm = () => {
                 <input type="text"
                   className="form-control"
                   onChange={e => setImageUrl(e.target.value)}
-                  id="animal-img"
+                  id="image"
                   placeholder="Въведи URL за картинка "
                 />
                 <img src={imageUrl} className="d-block img-fluid" alt="" />

@@ -29,9 +29,10 @@ const RegisterForm = () => {
         }
     }, [currentUser]);
 
-    return  <div className="row">
+    return  <div className="row" style={profileStyle}>
         <div className="col-md-3">
-                <form>
+            <h3>Редактирай </h3>
+                <form > 
                 <div className="form-group">
                     <label htmlFor="first-name">Име</label>
                     <input type="text"
@@ -63,10 +64,18 @@ const RegisterForm = () => {
                 <button type="button" className="btn btn-success" onClick={dispatchEditUser}>Запази</button>
             </form>
         </div>
-</div>
-    
-    
-    
+
+        <div className="col-md-6" style={listStyle}>
+            <h3>Моите обяви</h3>
+        </div>
+</div>   
 }
 
+const profileStyle={
+    fontFamily: 'Comic Sans MS',
+}
+
+const listStyle={
+    marginLeft: '100px',
+}
 export default RegisterForm;
