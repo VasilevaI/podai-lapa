@@ -90,6 +90,13 @@ export const login = variables => async dispatch => {
     }
 }
 
+export const logout = variables => async dispatch => {
+    dispatch(saveToken(''));
+    dispatch(setUserLoaded());
+    dispatch(saveCurrentUser({}));
+    localStorage.clear();
+}
+
 export function setGraphQLError (error) {
     return { type: types.ADD_GRAPHQL_ERROR, payload: error };
 }

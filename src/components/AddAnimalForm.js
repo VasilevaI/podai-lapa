@@ -152,8 +152,8 @@ const AddAnimalForm = () => {
 
 const formStyle = {
   margin: '10px',
-  padding: '8px',
-  border: '1px solid red',
+  padding: '15px',
+  border: '1px solid black',
   fontFamily: 'Comic Sans MS',
   position: 'relative',
   left: '150px'
