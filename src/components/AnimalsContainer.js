@@ -27,10 +27,10 @@ const AnimalsContainer =props => {
             <div className="col-xs-12 col-md-12 ">
             <div className="post" style={postStyle}>
             <div className="col-xs-5 col-sm-3 thumbnail-col">
-            <img src={props.animals.imageUrl}  className="card-img-top" />
+            <img src={props.animals.imageUrl}  className="image-animal" style={imgStyle} />
             </div>
            <div className="col-xs-7 col-sm-4 info-col" style={infoStyle}>
-               <h3 className="postTitle" title="Мейси" style={titleStyle} > {props.animals.name}</h3>
+               <h3 className="postTitle" style={titleStyle} > {props.animals.name}</h3>
                <div className="postData">
                        <p className="pleft">Вид: {props.animals.kind} </p>
                        <p className="pleft">Пол: {props.animals.sex} </p>
@@ -90,6 +90,11 @@ const infoStyle={
  background: '#b30000',
     padding: '8px',
     color: 'white', 
+}
+
+const imgStyle={
+    width: '100%',
+    height: '100%'
 }
 const authorStyle={
     padding: '8px',

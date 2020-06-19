@@ -61,7 +61,7 @@ const RegisterForm = () => {
                         id="register-password" 
                         placeholder="Въведи парола"/>
                 </div>
-                <button type="button" className="btn btn-success" onClick={dispatchEditUser}>Запази</button>
+                <button type="button" className="btn btn-info" onClick={dispatchEditUser}>Запази</button>
             </form>
         </div>
 

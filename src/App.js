@@ -13,6 +13,7 @@ import Animals from './pages/Animals';
 import Contacts from './pages/Contacts';
 import Profile from './pages/Profile';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 import { Provider } from 'react-redux';
@@ -28,6 +29,7 @@ const Layout = props => (
       <div className="container mt-5">
           {props.children}
       </div>
+      <Footer/>
   </>
 )
 

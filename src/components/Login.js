@@ -19,7 +19,7 @@ const Register = (props) => {
             <LoginForm/>
         </ModalBody>
         <ModalFooter>
-          Ако сте забравили паролата си няма как да си я възстановите :)
+          Забравена парола не може да се възстанови!
         </ModalFooter>
       </Modal>
     </div>

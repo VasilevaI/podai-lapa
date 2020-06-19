@@ -34,7 +34,7 @@ const RegisterForm = () => {
                 id="login-password" 
                 placeholder="Въведи парола"/>
         </div>
-        <button type="button" className="btn btn-success" onClick={dispatchLogin}>Влез</button>
+        <button type="button" className="btn btn-info" onClick={dispatchLogin}>Влез</button>
     </form>
 }
 

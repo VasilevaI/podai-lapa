@@ -16,7 +16,7 @@ class Contacts extends React.Component {
         <React.Fragment>
             
             <div className="col-xs-12 col-md-12" style={containerStyle}>           
-            <form style={contactStyle} className="col-xs-12 col-md-3">
+            <form style={contactStyle} className="col-xs-12 col-md-5">
             <div className="form-group">
                 <label>Име</label>
                 <input 
@@ -48,7 +48,7 @@ class Contacts extends React.Component {
             type="submit" 
             className="btn btn-primary">Изпрати</button>
         </form>
-        <div className="help-section col-xs-7 col-md-5" >
+        <div className="help-section col-xs-7 col-md-7" >
             <h3>ПОМОГНЕТЕ НА ЖИВОТНО В БЕДА</h3>
             <p> <h5>Чрез "Подай лапа" можете да помогнете по няколко начини: 
             като подадете сигнал за животно в беда; 
@@ -67,8 +67,7 @@ const containerStyle={
  display:'flex',
  padding:'10px',
  fontFamily:'Comic Sans MS',
- position:'relative',
- left: '200px'
+ 
 }
 
 const contactStyle={

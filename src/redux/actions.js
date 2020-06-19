@@ -69,7 +69,7 @@ export const addUser = variables => async dispatch => {
 }
 
 
-export const editUser = (variables, responseFields = "_id firstName lastName email userType games {name}") => async dispatch => {
+export const editUser = (variables, responseFields = "_id firstName lastName email userType animals {name}") => async dispatch => {
     try {
         const response = await graphQLService.editUser(variables, responseFields);
         dispatch(getCurrentUser());
